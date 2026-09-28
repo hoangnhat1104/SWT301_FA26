@@ -5,7 +5,7 @@ import java.time.Period;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-/** Các hàm kiểm tra dữ liệu thuần túy (static, không trạng thái, không ném exception với null). */
+/** hàm kiểm tra dữ liệu thuần túy (static, không trạng thái, không ném exception với null). */
 public final class AccountValidator {
 
     /** BR-REG-02: 5–20 ký tự, bắt đầu bằng chữ cái, chỉ gồm chữ ASCII, số, dấu _. */

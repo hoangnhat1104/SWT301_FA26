@@ -106,11 +106,12 @@ public class AccountService {
     }
 
     public Optional<Account> findByUsername(String username) {
-        throw new UnsupportedOperationException("TODO");
+        if (isBlank(username)) return Optional.empty();
+        return Optional.ofNullable(accountsByUsername.get(key(username)));
     }
 
     public boolean isLocked(String username) {
-        throw new UnsupportedOperationException("TODO");
+        return findByUsername(username).map(Account::isLocked).orElse(false);
     }
 
     // ================= BONUS stubs =================

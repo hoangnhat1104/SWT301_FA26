@@ -43,13 +43,14 @@ class AccountValidatorTest {
         void isValidUsername_NullEmptyBlank_ReturnsFalse(String username) {
             assertFalse(AccountValidator.isValidUsername(username));
         }
+    }
 
-        @ParameterizedTest(name = "[{index}] độ dài {0} -> {1}")
-        @MethodSource("fu.de190259.AccountValidatorTest#usernameLengths")
-        void isValidUsername_BoundaryLength(int length, boolean expected) {
-            String username = "a".repeat(length);
-            assertEquals(expected, AccountValidator.isValidUsername(username));
-        }
+    // BoundaryLength nằm ngoài @Nested để @MethodSource tìm thấy provider trong cùng lớp
+    @ParameterizedTest(name = "[{index}] độ dài {0} -> {1}")
+    @MethodSource("usernameLengths")
+    void isValidUsername_BoundaryLength(int length, boolean expected) {
+        String username = "a".repeat(length);
+        assertEquals(expected, AccountValidator.isValidUsername(username));
     }
 
     static Stream<Arguments> usernameLengths() {
